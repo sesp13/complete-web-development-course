@@ -59,7 +59,7 @@
       </div>
     </section>
 
-    <main class="container shadow">
+    <main class="container shadow" >
       <h2>My services</h2>
       <section class="services">
         <section class="service">
@@ -174,7 +174,7 @@
         </section>
       </section>
 
-      <section>
+      <section class="contact">
         <h2>Contact</h2>
         <form class="form">
           <fieldset>
@@ -183,27 +183,48 @@
             <div class="field-container">
               <div class="field">
                 <label for="name">Name</label>
-                <input type="text" name="name" placeholder="Your name" />
+                <input
+                  class="input-text"
+                  type="text"
+                  name="name"
+                  placeholder="Your name"
+                />
               </div>
 
               <div class="field">
                 <label for="">Phone</label>
-                <input type="number" name="phone" placeholder="Your phone" />
+                <input
+                  class="input-text"
+                  type="number"
+                  name="phone"
+                  placeholder="Your phone"
+                />
               </div>
 
-              <div class="field">
+              <div class="field email-field">
                 <label for="email">Email</label>
-                <input type="email" name="email" placeholder="Your email" />
+                <input
+                  class="input-text"
+                  type="email"
+                  name="email"
+                  placeholder="Your email"
+                />
               </div>
 
-              <div class="field">
+              <div class="field message-field">
                 <label for="message">Message</label>
-                <textarea name="message" id="" cols="30" rows="10"></textarea>
+                <textarea
+                  class="input-text"
+                  name="message"
+                  id=""
+                  cols="20"
+                  rows="8"
+                ></textarea>
               </div>
             </div>
 
-            <div>
-              <input type="submit" value="Send" />
+            <div class="flex justify-right">
+              <input class="button w-sm-100" type="submit" value="Send" />
             </div>
           </fieldset>
         </form>
@@ -211,7 +232,7 @@
     </main>
 
     <footer class="container">
-      <p>All rights reserved. Santiago Espinosa</p>
+      <p class="text-center">All rights reserved. Santiago Espinosa</p>
     </footer>
   </body>
 </html>
