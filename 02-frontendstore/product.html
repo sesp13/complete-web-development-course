@@ -13,6 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/product.css" />
   </head>
   <body>
     <header class="header">
@@ -20,19 +21,42 @@
         <img class="header__logo" src="img/logo.png" alt="Logo" />
       </a>
     </header>
-    
+
     <nav class="navigation">
-      <a class="navigation__link navigation__link--active" href="index.html">Store</a>
+      <a class="navigation__link navigation__link--active" href="index.html"
+        >Store</a
+      >
       <a class="navigation__link" href="about.html">About</a>
     </nav>
 
     <main class="container">
-      <h1>Product</h1>
+      <h1>React JS</h1>
+      <div class="shirt">
+        <img class="shirt__image" src="img/3.jpg" alt="Product image" />
+        <div class="shirt__content">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi,
+            delectus blanditiis eveniet tempore odio impedit qui quibusdam ab
+            consequuntur veritatis animi? Eligendi cumque pariatur sunt a
+            necessitatibus commodi soluta vero.
+          </p>
+
+          <form class="form container">
+            <select class="form__field">
+              <option selected disabled value="">-- Select a size --</option>
+              <option value="">Small</option>
+              <option value="">Medium</option>
+              <option value="">Large</option>
+            </select>
+            <input class="form__field" type="number" min="1" step="10" placeholder="Quantity">
+            <input class="form__submit" type="submit" value="Add to cart">
+          </form>
+        </div>
+      </div>
     </main>
 
     <footer class="footer">
       <p class="footer__text">Front End Store - All rights reserved 2022</p>
     </footer>
-
   </body>
 </html>
