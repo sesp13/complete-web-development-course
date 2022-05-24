@@ -1,0 +1,11 @@
+@media (min-width: 768px) {
+  .about_us {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .about_us__image,
+  .about_us__text {
+    flex-basis: calc(50% - 1rem);
+  }
+}
