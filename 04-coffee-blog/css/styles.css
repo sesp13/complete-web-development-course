@@ -73,6 +73,11 @@ img {
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 2rem;
+  border: none;
+}
+
+.button:hover{
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
