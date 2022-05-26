@@ -21,3 +21,6 @@ result = Math.abs(-200);
 result = Math.max(-200, 5);
 result = Math.random();
 
+// operations
+result = (20 + 30) * 2;
+result = (100 + 200 + 300) * 0.2;
