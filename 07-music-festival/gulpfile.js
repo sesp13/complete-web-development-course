@@ -5,6 +5,9 @@ const plumber = require('gulp-plumber');
 
 // Images
 const webp = require('gulp-webp');
+const imageMin = require('gulp-imagemin');
+const cache = require('gulp-cache');
+const avif = require('gulp-avif');
 
 function css(done) {
   // Identify SASS file
@@ -24,10 +27,26 @@ function webpImages(done) {
   done();
 }
 
+function avifImages(done) {
+  const avifOptions = { quality: 50 };
+  src('src/img/**/*.{png,jpg}').pipe(avif(avifOptions)).pipe(dest('build/img'));
+  done();
+}
+
+function reduceImages(done) {
+  const imageMinOptions = { optimizationLevel: 3 };
+  src('src/img/**/*.{png,jpg}')
+    .pipe(cache(imageMin(imageMinOptions)))
+    .pipe(dest('build/img'));
+  done();
+}
+
 function dev(done) {
   watch('src/scss/**/*.scss', css);
   done();
 }
 
-exports.dev = parallel(dev, webpImages);
+exports.reduceImages = reduceImages;
 exports.webpImages = webpImages;
+exports.avifImages = avifImages;
+exports.dev = parallel(dev, reduceImages, webpImages, avifImages);
