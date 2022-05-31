@@ -1,6 +1,10 @@
-const { src, dest, watch } = require('gulp');
+const { src, dest, watch, parallel } = require('gulp');
+// CSS
 const sass = require('gulp-sass')(require('sass'));
 const plumber = require('gulp-plumber');
+
+// Images
+const webp = require('gulp-webp');
 
 function css(done) {
   // Identify SASS file
@@ -14,9 +18,16 @@ function css(done) {
   done();
 }
 
+function webpImages(done) {
+  const webpOptions = { quality: 50 };
+  src('src/img/**/*.{png,jpg}').pipe(webp(webpOptions)).pipe(dest('build/img'));
+  done();
+}
+
 function dev(done) {
   watch('src/scss/**/*.scss', css);
   done();
 }
 
-exports.dev = dev;
+exports.dev = parallel(dev, webpImages);
+exports.webpImages = webpImages;
