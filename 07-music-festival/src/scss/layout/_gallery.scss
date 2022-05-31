@@ -1,0 +1,27 @@
+@use 'base/variables' as vars;
+@use 'base/mixins' as mixins;
+
+.gallery {
+  padding: 5rem 0;
+
+  h3 {
+    text-align: center;
+  }
+}
+
+.image-gallery {
+  @include mixins.resetUl;
+  @include mixins.grid(2, 2rem);
+
+  @include mixins.phone {
+    @include mixins.grid(3, 2rem);
+  }
+
+  @include mixins.tablet {
+    @include mixins.grid(4, 2rem);
+  }
+
+  @include mixins.desktop {
+    @include mixins.grid(6, 2rem);
+  }
+}

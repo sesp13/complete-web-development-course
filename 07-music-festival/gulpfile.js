@@ -41,12 +41,26 @@ function reduceImages(done) {
   done();
 }
 
-function dev(done) {
-  watch('src/scss/**/*.scss', css);
+function addJavascript(done) {
+  src('src/js/**/*.js').pipe(dest('build/js'));
   done();
 }
 
+function dev(done) {
+  watch('src/scss/**/*.scss', css);
+  watch('src/js/**/*.js', addJavascript);
+  done();
+}
+
+exports.addJavascript = addJavascript;
+exports.css = css;
 exports.reduceImages = reduceImages;
 exports.webpImages = webpImages;
 exports.avifImages = avifImages;
-exports.dev = parallel(dev, reduceImages, webpImages, avifImages);
+exports.dev = parallel(
+  dev,
+  addJavascript,
+  reduceImages,
+  webpImages,
+  avifImages
+);
