@@ -4,8 +4,18 @@
 .header {
   background-color: vars.$green;
 
+  &.fixed {
+    @include mixins.tablet {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      box-shadow: 0.3rem 0.3rem 0.3rem #333;
+    }
+  }
+
   h1 {
-    color: vars.$white;
+    color: vars.$white !important;
     text-align: center;
 
     @include mixins.tablet {

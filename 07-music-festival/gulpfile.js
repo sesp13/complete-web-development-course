@@ -2,6 +2,10 @@ const { src, dest, watch, parallel } = require('gulp');
 // CSS
 const sass = require('gulp-sass')(require('sass'));
 const plumber = require('gulp-plumber');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const postcss = require('gulp-postcss');
+const sourcemaps = require('gulp-sourcemaps');
 
 // Images
 const webp = require('gulp-webp');
@@ -9,12 +13,19 @@ const imageMin = require('gulp-imagemin');
 const cache = require('gulp-cache');
 const avif = require('gulp-avif');
 
+// Javascript
+const terser = require('gulp-terser-js');
+
 function css(done) {
   // Identify SASS file
   src('src/scss/**/*.scss')
+    .pipe(sourcemaps.init())
     // Compile file
     .pipe(plumber())
     .pipe(sass())
+    // optimze
+    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(sourcemaps.write('.'))
     // Save result
     .pipe(dest('build/css'));
 
@@ -42,7 +53,11 @@ function reduceImages(done) {
 }
 
 function addJavascript(done) {
-  src('src/js/**/*.js').pipe(dest('build/js'));
+  src('src/js/**/*.js')
+    .pipe(sourcemaps.init())
+    .pipe(terser())
+    .pipe(sourcemaps.write('.'))
+    .pipe(dest('build/js'));
   done();
 }
 
@@ -60,6 +75,7 @@ exports.avifImages = avifImages;
 exports.dev = parallel(
   dev,
   addJavascript,
+  css,
   reduceImages,
   webpImages,
   avifImages

@@ -16,11 +16,13 @@
   <body>
     <header class="header">
       <div class="container header-content">
-        <h1>Rock & EDM Festival</h1>
+        <a href="/">
+          <h1>Rock & EDM Festival</h1>
+        </a>
         <nav class="main-navigation">
-          <a href="#">LineUp</a>
-          <a href="#">Gallery</a>
-          <a href="#">Tickets</a>
+          <a href="#lineup">LineUp</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#tickets">Tickets</a>
         </nav>
       </div>
     </header>
@@ -65,7 +67,7 @@
       </div>
     </section>
 
-    <section class="lineup">
+    <section id="lineup" class="lineup">
       <h3>LineUp</h3>
       <p class="day">Friday 21st</p>
       <div class="scenarios-container container">
@@ -122,10 +124,53 @@
       </div>
     </section>
 
-    <section class="gallery container">
+    <section id="gallery" class="gallery container">
       <h3>Gallery</h3>
       <ul class="image-gallery"></ul>
     </section>
+
+    <section id="tickets" class="tickets bg-green">
+      <h3>Tickets</h3>
+      <div class="container tickets-container">
+        <section class="basic ticket">
+          <p class="ticket-name">One day Ticket</p>
+          <div class="ticket-header">
+            <p>Includes</p>
+          </div>
+          <div class="ticket-body">
+            <ul>
+              <li>Both stages access</li>
+              <li>Food & drinks</li>
+            </ul>
+          </div>
+          <div class="ticket-footer">
+            <p>$100</p>
+          </div>
+        </section>
+
+        <section class="premium ticket">
+          <p class="ticket-name">Two days Ticket</p>
+          <div class="ticket-header">
+            <p>Includes</p>
+          </div>
+          <div class="ticket-body">
+            <ul>
+              <li>Both stages access</li>
+              <li>Food & drinks</li>
+              <li>Event's shirt</li>
+              <li>VIP Access</li>
+            </ul>
+          </div>
+          <div class="ticket-footer">
+            <p>$175</p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Rock & EDM Festival all rights reserved</p>
+    </footer>
 
     <script src="build/js/app.js"></script>
   </body>
